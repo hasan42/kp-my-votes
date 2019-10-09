@@ -1,3 +1,21 @@
+##Need TODO
++ add info on server
++ add item to list
+  + create tab system
+  + tab with list
+  + tab with form
++ check sequel watched
++ find id in list ? green : red
++ count check on kinopoisk
++ form
+  + save json file
+  + load json file
++ fix markup
++ **add filter to viewed sequel**
++ **make script for parse serial**
++ **add tooltip info about work**
++ **add control delete item**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

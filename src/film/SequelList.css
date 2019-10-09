@@ -1,0 +1,20 @@
+.sequel-list {
+  padding: 0;
+  color: #fff;
+}
+.sequel-list li {
+  padding: 3px 5px;
+  white-space: nowrap;
+  list-style-type: none;
+  background: linear-gradient(to right, rgb(255, 65, 108), rgb(255, 75, 43));
+}
+.sequel-list li.watched {
+  background: linear-gradient(to right, rgb(0, 176, 155), rgb(150, 201, 61));
+}
+.sequel-list a {
+  color: #fff;
+  text-decoration: none;
+}
+.sequel-list a:hover, .sequel-list a:active {
+  color: #2B32B2;
+}

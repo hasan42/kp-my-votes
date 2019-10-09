@@ -1,22 +1,67 @@
+html, body {
+  position: relative;
+  height: 100%;
+  background: rgba(0,32,63,1);
+  background: -webkit-linear-gradient(top, rgba(0,32,63,1) 0%, rgba(0,10,20,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,32,63,1) 0%, rgba(0,10,20,1) 100%);
+  color: #111111;
+}
+
+a {
+  color: #2B32B2;
+}
+a:hover, a:active {
+  color: #1488CC;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
-  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+  height: calc(100% - 20px);
 }
 
-.App-logo {
-  height: 40vmin;
+.table-film {
+  border-collapse: collapse;
+}
+.table-film tr {
+  border-bottom: 1px solid #ccc;
+}
+.table-film td, .table-film th {
+  vertical-align: top;
+  padding: 5px;
+}
+.table-film td:first-child {
+  font-size: 10px;
+  color: #bebebe;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-wrap {
+
+}
+.form-item label{
   display: flex;
-  flex-direction: column;
+  align-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 15px 0;
 }
-
-.App-link {
-  color: #09d3ac;
+.form-item label > div, .form-item label > input[type="text"] {
+  flex-grow: 1;
+  flex-basis: 50%;
+}
+.form-item label > input[type="text"] {
+  padding: 7px 5px;
+}
+.form-item input[type="button"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(147deg, rgb(195, 55, 100), rgb(29, 38, 113));
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
 }
