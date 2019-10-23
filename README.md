@@ -12,9 +12,14 @@
   + load json file
 + fix markup
 + **add filter to viewed sequel**
-+ **make script for parse serial**
++ make script for parse serial
 + **add tooltip info about work**
-+ **add control delete item**
++ **add control delete, upgrade and edit item**
++ add select current watched episode or watched full
+
+Нажимаем кнопку, показывается списки
+если нет свойства просмотренного - показывается по умолчанию 1-1 иначе из свойства отмечаются
+при клике на серию - добавляется новое свойство
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

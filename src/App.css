@@ -65,3 +65,15 @@ a:hover, a:active {
   outline: 0;
   border-radius: 5px;
 }
+
+.serial-list.show {
+
+}
+.serial-list.hide {
+  display: none;
+}
+
+.selects.show {}
+.selects.hide {
+  display: none;
+}

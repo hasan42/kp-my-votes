@@ -4,6 +4,8 @@ import Tabs from './tabs/Tabs';
 import TableFilm from './film/TableFilm';
 import ParserStat from './film/ParserStat';
 import DataWork from './form/DataWork';
+import Sequel from './film/Sequel';
+import Season from './film/Season';
 
 import './App.css';
 
@@ -30,6 +32,7 @@ export default class App extends React.Component {
 
     this.handleSave = this.handleSave.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
+    this.selectCurrentEpisode = this.selectCurrentEpisode.bind(this);
   }
 
   handleSave(){
@@ -62,6 +65,22 @@ export default class App extends React.Component {
     this.handleSave();
   }
 
+  selectCurrentEpisode(current, id){
+    // console.log(current, id)
+    let filmArray = this.state.film;
+    filmArray.map((item)=>{
+      if(item.id === id){
+        item.serial.current = current;
+      }
+    });
+    this.setState({
+      film: filmArray
+    });
+    // this.handleSave();
+  }
+
+
+
   render(){
     let tableFilms, sequelFilms, serialFilms, parserStat, dataWork;
     if (this.state.film !== '') {
@@ -69,10 +88,10 @@ export default class App extends React.Component {
       tableFilms = <TableFilm items={this.state.film} />;
 
       let sequelList = this.state.film.filter(item => item.sequel && item.sequel !== false);
-      sequelFilms = <TableFilm items={sequelList} />;
+      sequelFilms = <Sequel items={sequelList} />;
 
       let serialList = this.state.film.filter(item => item.serial);
-      serialFilms = <TableFilm items={serialList} />;
+      serialFilms = <Season items={serialList} selectCurrent={this.selectCurrentEpisode} />;
 
       let parseStatLengthAll = this.state.film.length;
       let parseStatLengthParse = this.state.film.filter(item => item.serial || item.serial === false);
