@@ -26,6 +26,7 @@ export default class TableFilm extends Component {
           <td>{item.vote}</td>
           <td>{itSequel}</td>
           <td>{itSerial}</td>
+          <td><button onClick={() => this.props.delId(item.id)}>del</button></td>
         </tr>
         );
     });

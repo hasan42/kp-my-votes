@@ -33,6 +33,7 @@ export default class App extends React.Component {
     this.handleSave = this.handleSave.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
     this.selectCurrentEpisode = this.selectCurrentEpisode.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
 
   handleSave(){
@@ -79,13 +80,20 @@ export default class App extends React.Component {
     // this.handleSave();
   }
 
-
+  handleDeleteItem(id){
+    let filmArray = this.state.film;
+    let el = filmArray.findIndex(item => item.id === id)
+    filmArray.splice(el, 1);
+    this.setState({
+      film: filmArray
+    });
+  }
 
   render(){
     let tableFilms, sequelFilms, serialFilms, parserStat, dataWork;
     if (this.state.film !== '') {
 
-      tableFilms = <TableFilm items={this.state.film} />;
+      tableFilms = <TableFilm items={this.state.film} delId={this.handleDeleteItem} />;
 
       let sequelList = this.state.film.filter(item => item.sequel && item.sequel !== false);
       sequelFilms = <Sequel items={sequelList} />;
