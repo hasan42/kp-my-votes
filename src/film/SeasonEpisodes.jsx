@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './SequelList.css';
 
@@ -114,21 +114,21 @@ export default class SeasonEpisodes extends Component {
     const isEdit = this.state.showEditCurrent;
 
     if(isShow){
-      iconShow = <FontAwesomeIcon icon={['fas', 'minus']} />
+      iconShow = <FontAwesomeIcon icon={['fas', 'minus']} color="rgb(255, 65, 108)" />
     }else{
-      iconShow = <FontAwesomeIcon icon={['fas', 'plus']} />
+      iconShow = <FontAwesomeIcon icon={['fas', 'plus']} color="rgb(0, 176, 155)" />
     }
 
     if(isEdit){
-      iconEdit = <FontAwesomeIcon icon={['fas', 'eye-slash']} />
+      iconEdit = <FontAwesomeIcon icon={['fas', 'eye-slash']} color="rgb(255, 65, 108)" />
     }else{
-      iconEdit = <FontAwesomeIcon icon={['fas', 'eye']} />
+      iconEdit = <FontAwesomeIcon icon={['fas', 'eye']} color="rgb(0, 176, 155)" />
     }
 
     // console.log(this.state.selectSeason)
     return (
       <div>
-        <p>Total seasons: {arr.length} <button onClick={this.handelClickShow}>{iconShow}</button></p>
+        <p>Total seasons: {arr.length} <button onClick={this.handelClickShow} className="icon-btn">{iconShow}</button></p>
         <p className={isShow ? 'serial-list show' : 'serial-list hide'}>
           {
             arr.map((item,idx) => {
@@ -136,7 +136,7 @@ export default class SeasonEpisodes extends Component {
             })
           }
         </p>
-        <p>Current: {thisCurrent} <button onClick={this.handelClickEdit}>{iconEdit}</button></p>
+        <p>Current: {thisCurrent} <button onClick={this.handelClickEdit} className="icon-btn">{iconEdit}</button></p>
         <div className={isEdit ? 'selects show' : 'selects hide'}>
           <select onClick={this.handleSelectSeason}>
             {this.createSelect(arr.length)}

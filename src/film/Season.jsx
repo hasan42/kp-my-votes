@@ -22,8 +22,7 @@ export default class Season extends Component {
           <td>{idx}</td>
           <td><a id={item.id}></a>{item.id}</td>
           <td><a href={`http://kinopoisk.ru${item.link}`} rel='noopener noreferrer' target='_blank'>{item.link}</a></td>
-          <td>{item.nameRus}</td>
-          <td>{item.nameEng}</td>
+          <td>{item.nameRus}<br />{item.nameEng}</td>
           <td>{item.vote}</td>
           <td>{itSequel}</td>
           <td>{itSerial}</td>
@@ -37,8 +36,7 @@ export default class Season extends Component {
             <th></th>
             <th>id</th>
             <th>link</th>
-            <th>nameRus</th>
-            <th>nameEng</th>
+            <th>name</th>
             <th>vote</th>
             <th>sequel</th>
             <th>serial</th>

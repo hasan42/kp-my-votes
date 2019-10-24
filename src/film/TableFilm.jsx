@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SequelList from './SequelList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class TableFilm extends Component {
 
@@ -26,7 +27,7 @@ export default class TableFilm extends Component {
           <td>{item.vote}</td>
           <td>{itSequel}</td>
           <td>{itSerial}</td>
-          <td><button onClick={() => this.props.delId(item.id)}>del</button></td>
+          <td><button className="icon-btn" onClick={() => this.props.delId(item.id)}><FontAwesomeIcon icon={['fas', 'times']} color="rgb(255, 65, 108)"/></button></td>
         </tr>
         );
     });
