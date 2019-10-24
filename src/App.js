@@ -34,6 +34,7 @@ export default class App extends React.Component {
     this.addNewItem = this.addNewItem.bind(this);
     this.selectCurrentEpisode = this.selectCurrentEpisode.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
+    this.findDuplicate = this.findDuplicate.bind(this);
   }
 
   handleSave(){
@@ -51,7 +52,6 @@ export default class App extends React.Component {
   }
 
   addNewItem(item){
-
     let filmArray = this.state.film;
 
     if(Array.isArray(item)){
@@ -67,7 +67,6 @@ export default class App extends React.Component {
   }
 
   selectCurrentEpisode(current, id){
-    // console.log(current, id)
     let filmArray = this.state.film;
     filmArray.map((item)=>{
       if(item.id === id){
@@ -87,6 +86,19 @@ export default class App extends React.Component {
     this.setState({
       film: filmArray
     });
+    // this.handleSave();
+  }
+
+  findDuplicate(){
+    let filmArray = this.state.film;
+    let unique = filmArray.filter((set => item => !set.has(item.id) && set.add(item.id))(new Set));
+
+    // console.log(unique);
+
+    this.setState({
+      film: unique
+    });
+    // this.handleSave();
   }
 
   render(){
@@ -122,6 +134,7 @@ export default class App extends React.Component {
         </div>
         <Tabs>
           <div label="All">
+            <button onClick={this.findDuplicate}>del dup</button>
             {tableFilms}
           </div>
           <div label="Sequel">
