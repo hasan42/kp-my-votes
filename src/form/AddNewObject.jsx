@@ -5,7 +5,10 @@ export default class AddNewFields extends Component {
     constructor(props) {
       super(props);
       this.state = {
-          item: ''
+        item: '',
+        itemText: '',
+        validItem: '',
+        validMsg: ''
       };
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,15 +19,39 @@ export default class AddNewFields extends Component {
       const target = event.target;
       const value = target.value;
 
-      let myobj = JSON.parse(value);
+      // let myobj = JSON.parse(value);
 
       this.setState({
-          item: myobj
+        itemText: value,
+        validItem: '',
+        validMsg: ''
       });
     }
 
     handleSubmit(event) {
-      this.props.itemAdd(this.state.item)
+      try {
+        if(this.state.itemText === ''){
+          throw new SyntaxError("не заполнено поле");
+        }
+
+        let myobj = JSON.parse(this.state.itemText);
+
+        this.props.itemAdd(myobj);
+
+        this.setState({
+          itemText: '',
+          validItem: '',
+          validMsg: 'Saved!'
+        });
+
+      }catch(e){
+        this.setState({
+          validMsg: 'Error',
+          validItem: 'red'
+        })
+        console.log(e);
+      }
+      
     }
 
     render() {
@@ -41,14 +68,16 @@ export default class AddNewFields extends Component {
                 <input
                   name="item"
                   type="text"
-                  value={this.state.item}
-                  onChange={this.handleInputChange} />
+                  value={this.state.itemText}
+                  onChange={this.handleInputChange}
+                  style={{borderColor: this.state.validItem}} />
               </label>
             </div>
             <div className="form-item">
               <input
                 value="Save"
                 type="button" onClick={this.handleSubmit} />
+              {this.state.validMsg}
             </div>
           </form>
         </div>

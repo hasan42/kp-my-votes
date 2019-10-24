@@ -81,7 +81,7 @@ export default class App extends React.Component {
 
   handleDeleteItem(id){
     let filmArray = this.state.film;
-    let el = filmArray.findIndex(item => item.id === id)
+    let el = filmArray.findIndex(item => item.id === id);
     filmArray.splice(el, 1);
     this.setState({
       film: filmArray
