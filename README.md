@@ -14,8 +14,10 @@
 + **add filter to viewed sequel**
 + make script for parse serial
 + **add tooltip info about work**
-+ **add control delete, upgrade and edit item**
++ add control delete, upgrade and edit item
 + add select current watched episode or watched full
++ **add loader**
++ **search field**
 
 Нажимаем кнопку, показывается списки
 если нет свойства просмотренного - показывается по умолчанию 1-1 иначе из свойства отмечаются

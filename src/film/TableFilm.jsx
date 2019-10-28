@@ -6,6 +6,9 @@ export default class TableFilm extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+        loading: true
+    };
     this.sequelWatched = this.sequelWatched.bind(this);
   }
 
@@ -13,10 +16,36 @@ export default class TableFilm extends Component {
     return this.props.items.find(x => x.id === id);
   }
 
+  componentWillReceiveProps(nextProps) {
+       console.log(Date() + " TableFilm componentWillReceiveProps()");
+   }
+   componentWillMount(){
+       console.log(Date() + " TableFilm componentWillMount()");
+   }
+   componentDidMount(){
+    this.setState({
+      loading: false
+    });
+       console.log(Date() + " TableFilm componentDidMount()");
+   }
+   componentWillUnmount(){
+       console.log(Date() + " TableFilm componentWillUnmount()");
+   }
+   shouldComponentUpdate(){
+       console.log(Date() + " TableFilm shouldComponentUpdate()");
+   }
+   componentWillUpdate(){
+       console.log(Date() + " TableFilm componentWillUpdate()");
+   }
+   componentDidUpdate(){
+       console.log(Date() + " TableFilm componentDidUpdate()");
+   }
+
   render() {
+    console.log(Date() + " TableFilm render()");
     const filmList = this.props.items.map((item, idx) => {
       let itSerial = item.serial ? 'сериал' : '';
-      let itSequel = item.sequel ? (item.sequel === false ? '' : <SequelList data={item.sequel} watched={this.sequelWatched} /> ) : '';
+      let itSequel = item.sequel ? (item.sequel === false ? '' : 'сиквелы' ) : '';
       return (
         <tr key={idx}>
           <td>{idx}</td>
@@ -32,7 +61,7 @@ export default class TableFilm extends Component {
         );
     });
     return (
-      <table className="table-film">
+      <table className={this.state.loading ? 'table-film load' : 'table-film finish'}>
         <thead>
           <tr>
             <th></th>

@@ -12,7 +12,30 @@ export default class Sequel extends Component {
     return this.props.items.find(x => x.id === id);
   }
 
+  componentWillReceiveProps(nextProps) {
+       console.log(Date() + " Sequel componentWillReceiveProps()");
+   }
+   componentWillMount(){
+       console.log(Date() + " Sequel componentWillMount()");
+   }
+   componentDidMount(){
+       console.log(Date() + " Sequel componentDidMount()");
+   }
+   componentWillUnmount(){
+       console.log(Date() + " Sequel componentWillUnmount()");
+   }
+   shouldComponentUpdate(){
+       console.log(Date() + " Sequel shouldComponentUpdate()");
+   }
+   componentWillUpdate(){
+       console.log(Date() + " Sequel componentWillUpdate()");
+   }
+   componentDidUpdate(){
+       console.log(Date() + " Sequel componentDidUpdate()");
+   }
+
   render() {
+    console.log(Date() + " Sequel render()");
     const filmList = this.props.items.map((item, idx) => {
       let itSerial = item.serial ? 'сериал' : '';
       let itSequel = item.sequel ? (item.sequel === false ? '' : <SequelList data={item.sequel} watched={this.sequelWatched} /> ) : '';

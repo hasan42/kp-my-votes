@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import axios from 'axios';
 import Tabs from './tabs/Tabs';
-import TableFilm from './film/TableFilm';
+import Preloader from './Preloader';
 import ParserStat from './film/ParserStat';
-import DataWork from './form/DataWork';
-import Sequel from './film/Sequel';
-import Season from './film/Season';
-
 import './App.css';
+const TableFilm = React.lazy(() => import('./film/TableFilm'));
+const DataWork = React.lazy(() => import('./form/DataWork'));
+const Sequel = React.lazy(() => import('./film/Sequel'));
+const Season = React.lazy(() => import('./film/Season'));
+// import TableFilm from './film/TableFilm';
+// import DataWork from './form/DataWork';
+// import Sequel from './film/Sequel';
+// import Season from './film/Season';
 
 export default class App extends React.Component {
 
@@ -105,7 +109,7 @@ export default class App extends React.Component {
     let tableFilms, sequelFilms, serialFilms, parserStat, dataWork;
     if (this.state.film !== '') {
 
-      tableFilms = <TableFilm items={this.state.film} delId={this.handleDeleteItem} />;
+      tableFilms = <Suspense fallback={<Preloader />}><TableFilm items={this.state.film} delId={this.handleDeleteItem} /></Suspense>;
 
       let sequelList = this.state.film.filter(item => item.sequel && item.sequel !== false);
       sequelFilms = <Sequel items={sequelList} />;
@@ -134,17 +138,28 @@ export default class App extends React.Component {
         </div>
         <Tabs>
           <div label="All">
-            <button onClick={this.findDuplicate}>del dup</button>
-            {tableFilms}
+            <Suspense fallback={<Preloader />}>
+              <button onClick={this.findDuplicate}>del dup</button>
+              {tableFilms}
+            </Suspense>
           </div>
           <div label="Sequel">
-            {sequelFilms}
+            <Suspense fallback={<Preloader />}>
+              {sequelFilms}
+            </Suspense>
           </div>
           <div label="Serial">
-            {serialFilms}
+            <Suspense fallback={<Preloader />}>
+              {serialFilms}
+            </Suspense>
           </div>
           <div label="Data work">
-            {dataWork}
+            <Suspense fallback={<Preloader />}>
+              {dataWork}
+            </Suspense>
+          </div>
+          <div label="preloader">
+            <Preloader />
           </div>
         </Tabs>
       </div>
