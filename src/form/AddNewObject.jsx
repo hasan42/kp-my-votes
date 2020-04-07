@@ -33,8 +33,10 @@ export default class AddNewFields extends Component {
         if(this.state.itemText === ''){
           throw new SyntaxError("не заполнено поле");
         }
-
+        console.log(typeof this.state.itemText)
         let myobj = JSON.parse(this.state.itemText);
+        console.log(typeof myobj)
+        console.log(myobj)
 
         this.props.itemAdd(myobj);
 
