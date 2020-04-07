@@ -1,93 +1,32 @@
-##Need TODO
-+ add info on server
-+ add item to list
-  + create tab system
-  + tab with list
-  + tab with form
-+ check sequel watched
-+ find id in list ? green : red
-+ count check on kinopoisk
-+ form
-  + save json file
-  + load json file
-+ fix markup
-+ **add filter to viewed sequel**
-+ make script for parse serial
-+ **add tooltip info about work**
-+ add control delete, upgrade and edit item
-+ add select current watched episode or watched full
-+ **add loader**
-+ **search field**
+# kp-my-votes
 
-Нажимаем кнопку, показывается списки
-если нет свойства просмотренного - показывается по умолчанию 1-1 иначе из свойства отмечаются
-при клике на серию - добавляется новое свойство
+Проект [переехал на Angular](https://github.com/hasan42/ng-kp-my-votes)  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[DEMO](https://www.kinopoisk.irustam.ru/)
 
-## Available Scripts
+Каталог/менеджер просмотренных фильмов.
 
-In the project directory, you can run:
+Приложение на React.  
+Информация хранится на сервере в JSON.  
+С JSON работает через PHP.
 
-### `npm start`
+Собирается инфомрация о просмотренных фильмах через [расширение для Chrome](https://github.com/hasan42/chrome-extension)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Сделал:**
+- отображение списка просмотренных фильмов;
+- в фильмах указывается сиквелы/приквелы по порядку;
+- отмечается какие из сиквелов/приквелов просмотренны;
+- если фильм является сериалом - отображается количество сезонов и серий;
+- можно отметить на каком сезоне и эпизоде остановился (не доделано);
+- возможность добавить новые фильмы через форму или ввиде JSON объекта (не доделано).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Доделать:**
+- фильтры;
+- прелоадер;
+- поправить верстку;
+- поправить ссылки и якоря на фильмы;
+- добавить импорт/экспорт JSON;
+- переработать в JSON часть сиквелов (сделать отдельным файлом);
+- поиск;
+- (?) избавиться от PHP;
+- (?) сделать систему аккаунтов.
